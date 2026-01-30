@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Vaishnavi 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#020024,#050a30,#000);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* ===== BALLOONS ===== */
+.balloon{
+  position:absolute;
+  bottom:-120px;
+  width:40px;
+  height:55px;
+  border-radius:50%;
+  animation:floatUp linear infinite;
+  opacity:.85;
+}
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:40px;
+  background:white;
+  left:50%;
+  top:55px;
+}
+@keyframes floatUp{
+  from{transform:translateY(0)}
+  to{transform:translateY(-130vh)}
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  padding:35px 15px;
+  position:relative;
+  z-index:2;
+}
+
+h1{
+  font-size:clamp(2rem,6vw,3.2rem);
+}
+.name{
+  color:#9ecbff;
+  text-shadow:0 0 15px #9ecbff;
+}
+
+p{
+  max-width:620px;
+  margin:14px auto;
+  opacity:0;
+  animation:fadeIn 2s forwards 1s;
+}
+
+/* ===== BUTTON ===== */
+button{
+  margin:30px 0;
+  padding:14px 35px;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+  background:linear-gradient(45deg,#4facfe,#00f2fe);
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== 3D CAKE ===== */
+.cake-wrapper{
+  perspective:1000px;
+  display:none;
+}
+
+.cake{
+  width:180px;
+  height:140px;
+  margin:80px auto 30px;
+  position:relative;
+  transform-style:preserve-3d;
+  animation:floatCake 3s ease-in-out infinite;
+}
+
+@keyframes floatCake{
+  0%,100%{transform:rotateX(12deg) translateY(0)}
+  50%{transform:rotateX(12deg) translateY(-15px)}
+}
+
+.layer{
+  position:absolute;
+  width:100%;
+  height:40px;
+  border-radius:15px;
+  box-shadow:0 20px 25px rgba(0,0,0,.4);
+}
+
+.layer1{bottom:0;background:#ffb74d;}
+.layer2{bottom:40px;background:#ffd54f;}
+.layer3{bottom:80px;background:#fff176;}
+
+/* NAME ON CAKE */
+.cake-name{
+  position:absolute;
+  top:65px;
+  left:10px;
+  width:100%;
+  font-weight:700;
+  color:#3e2723;
+  text-shadow:0 2px 4px rgba(0,0,0,.4);
+}
+
+/* CANDLE */
+.candle{
+  width:12px;
+  height:42px;
+  background:#ff5252;
+  position:absolute;
+  top:-42px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:6px;
+}
+
+.flame{
+  width:16px;
+  height:16px;
+  background:radial-gradient(circle,#fff176,orange,red);
+  border-radius:50%;
+  position:absolute;
+  top:-18px;
+  left:-2px;
+  animation:flicker .25s infinite alternate;
+}
+
+@keyframes flicker{
+  from{transform:scale(.9)}
+  to{transform:scale(1.1)}
+}
+
+/* ===== IMAGE CARD ===== */
+.image-card{
+  width:65%;
+  max-width:240px;
+  margin:18px auto;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  padding:8px;
+  box-shadow:0 0 18px rgba(255,255,255,0.15);
+  display:none;
+  cursor:pointer;
+}
+
+.image-card img{
+  width:100%;
+  border-radius:12px;
+  transition:opacity .5s ease;
+}
+
+/* ===== FIREWORK ===== */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 1.5s ease-out forwards;
+}
+
+@keyframes explode{
+  from{transform:scale(1);opacity:1}
+  to{transform:scale(20);opacity:0}
+}
+
+@keyframes fadeIn{to{opacity:1}}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="WhatsApp-Audio-2026-01-30-at-10.01.59-PM.mp3" type="audio/mpeg">
+</audio>
+
+<!-- BALLOONS -->
+<script>
+for(let i=0;i<12;i++){
+  let b=document.createElement("div");
+  b.className="balloon";
+  b.style.left=Math.random()*100+"vw";
+  b.style.background=`hsl(${Math.random()*360},80%,60%)`;
+  b.style.animationDuration=8+Math.random()*6+"s";
+  document.body.appendChild(b);
+}
+</script>
+
+<div class="container">
+  <h1>🎉 Happy Vala Birthday <span class="name">Vaishnavi</span> 🎉</h1>
+
+  <p>
+    You make my world softer, brighter & more beautiful 💙  
+    Today is all about celebrating YOU ✨
+  </p>
+
+  <!-- 3D CAKE -->
+  <div class="cake-wrapper">
+    <div class="cake">
+      <div class="layer layer3"></div>
+      <div class="layer layer2"></div>
+      <div class="layer layer1"></div>
+
+      <div class="cake-name">Vaishnavi 💙</div>
+
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE CARD -->
+  <div class="image-card" onclick="changeImage()">
+    <img id="cardImg" src="b1.jpeg">
+  </div>
+
+  <button onclick="startParty()">Celebrate for Vaishnavi 🎆</button>
+</div>
+
+<script>
+const images=["b1.jpeg","b2.jpeg","b4.jpeg","b3.jpeg"];
+let imgIndex=0;
+
+function startParty(){
+  document.querySelector(".cake-wrapper").style.display="block";
+  document.querySelector(".image-card").style.display="block";
+  document.querySelector("button").style.display="none";
+
+  // 🎶 PLAY MUSIC (user interaction safe)
+  const music=document.getElementById("bgMusic");
+  music.volume=0.6;
+  music.play();
+
+  setInterval(()=>{
+    let f=document.createElement("div");
+    f.className="firework";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*50+"vh";
+    f.style.background=`hsl(${Math.random()*360},100%,60%)`;
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
+  },300);
+}
+
+function changeImage(){
+  const img=document.getElementById("cardImg");
+  img.style.opacity=0;
+  setTimeout(()=>{
+    imgIndex=(imgIndex+1)%images.length;
+    img.src=images[imgIndex];
+    img.style.opacity=1;
+  },400);
+}
+</script>
+
+</body>
+</html>
